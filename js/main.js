@@ -16,28 +16,20 @@ const getRandomIntInclusive = (min, max) => {
   if (min < max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
- 
+
   return Math.floor(Math.random() * (min - max + 1)) + max;
 };
 
 
   //Функция возврата случайного числа с плавающей точкой из переданного диапазона включительно.
-  const getRandomFloatingPointNum = (min, max) => {
+  const getDecimalNumber = (min, max, decimal) => {
+    if (min < 0 || max < 0) return false;
+
+    let res = Math.random() * Math.abs(max - min + 1) + Math.min(max, min);
     
-    if (min < 0 || max < 0) {
-      return false;
-    }
+    if (res > Math.max(min, max)) res = Math.max(min, max);
 
-    if (Number.isInteger(min) || Number.isInteger(max)) {
-      return false;
-    }
-
-    min = Math.fround(min);
-    max = Math.fround(max);
-
-   return Math.floor(Math.random() * (maxNumber - minNumber + 1) + minNumber)
-};
-
-
+    return res.toFixed(decimal);
+  }
 
 
