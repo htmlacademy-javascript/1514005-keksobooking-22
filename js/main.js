@@ -29,7 +29,7 @@ const getRandomIntInclusive = (min, max) => {
     
     if (res > Math.max(min, max)) res = Math.max(min, max);
 
-    return res.toFixed(decimal);
+    return Number(res.toFixed(decimal));
   }
 
 
